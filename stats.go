@@ -2,17 +2,15 @@ package main
 
 import (
 	"fmt"
-	"sort"
-	"time"
-
-	"github.com/google/go-github/github"
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing/object"
+	"sort"
+	"time"
 )
 
 const outOfRange = 99999
 const daysInLastSixMonths = 183
-const weeksInLastSixMonth = 26
+const weeksInLastSixMonths = 26
 
 type column []int
 
@@ -58,7 +56,7 @@ func fillCommits(email string, path string, commits map[int]int) map[int]int {
 		panic(err)
 	}
 	//get the commits history starting gtom HEAD
-	iterator, err := repo.log(&git.LogOptions{From: ref.Hash()})
+	iterator, err := repo.Log(&git.LogOptions{From: ref.Hash()})
 	if err != nil {
 		panic(err)
 	}

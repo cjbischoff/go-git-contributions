@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"os/user"
-	"path/filepath"
 	"strings"
 )
 
@@ -54,7 +53,7 @@ func parseFileLinesToSlice(filePath string) []string {
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
-	if err := scanner.Err(); err != null {
+	if err := scanner.Err(); err != nil {
 		if err != io.EOF {
 			panic(err)
 		}
@@ -102,7 +101,7 @@ func addNewSliceElementsToFile(filePath string, newRepos []string) {
 
 //recursiveScanFolder starets the recursive search of git repositorries
 // living in the `folder` structure
-func recursiveScaneFolder(folder string) []string {
+func recursiveScanFolder(folder string) []string {
 	return scanGitFolders(make([]string, 0), folder)
 }
 

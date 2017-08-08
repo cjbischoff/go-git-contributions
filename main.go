@@ -6,14 +6,6 @@ import (
 	"flag"
 )
 
-func scan(path string) {
-	print("scan")
-}
-
-func stats(email string) {
-	print("stats")
-}
-
 func main() {
 	var folder string
 	var email string
